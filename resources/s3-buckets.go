@@ -11,7 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/aws/aws-sdk-go/service/s3/s3iface"
 	"github.com/aws/aws-sdk-go/service/s3/s3manager"
-	"github.com/rebuy-de/aws-nuke/pkg/types"
+	"github.com/jcarter3/aws-nuke/pkg/types"
 )
 
 func init() {
@@ -42,7 +42,7 @@ func ListS3Buckets(s *session.Session) ([]Resource, error) {
 			if aerr, ok := err.(awserr.Error); ok {
 				if aerr.Code() == "NoSuchTagSet" {
 					resources = append(resources, &S3Bucket{
-						svc: svc,
+						svc:  svc,
 						name: name,
 						tags: make([]*s3.Tag, 0),
 					})

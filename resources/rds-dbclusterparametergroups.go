@@ -7,7 +7,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/rds"
-	"github.com/rebuy-de/aws-nuke/pkg/types"
+	"github.com/jcarter3/aws-nuke/pkg/types"
 )
 
 type RDSDBClusterParameterGroup struct {
@@ -31,12 +31,12 @@ func ListRDSClusterParameterGroups(sess *session.Session) ([]Resource, error) {
 	var resources []Resource
 	for _, parametergroup := range resp.DBClusterParameterGroups {
 		tags, err := svc.ListTagsForResource(&rds.ListTagsForResourceInput{
-                        ResourceName: parametergroup.DBClusterParameterGroupArn,
-                })
+			ResourceName: parametergroup.DBClusterParameterGroupArn,
+		})
 
-                if err != nil {
-                        continue
-                }
+		if err != nil {
+			continue
+		}
 
 		resources = append(resources, &RDSDBClusterParameterGroup{
 			svc:  svc,

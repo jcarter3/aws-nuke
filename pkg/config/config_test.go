@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/rebuy-de/aws-nuke/pkg/types"
+	"github.com/jcarter3/aws-nuke/pkg/types"
 )
 
 func TestConfigBlacklist(t *testing.T) {

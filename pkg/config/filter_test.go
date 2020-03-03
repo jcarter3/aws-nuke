@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/rebuy-de/aws-nuke/pkg/config"
+	"github.com/jcarter3/aws-nuke/pkg/config"
 	yaml "gopkg.in/yaml.v2"
 )
 

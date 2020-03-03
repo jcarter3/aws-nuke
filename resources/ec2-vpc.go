@@ -3,12 +3,12 @@ package resources
 import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/ec2"
-	"github.com/rebuy-de/aws-nuke/pkg/types"
+	"github.com/jcarter3/aws-nuke/pkg/types"
 )
 
 type EC2VPC struct {
-	svc       *ec2.EC2
-	vpc       *ec2.Vpc
+	svc *ec2.EC2
+	vpc *ec2.Vpc
 }
 
 func init() {
@@ -26,8 +26,8 @@ func ListEC2VPCs(sess *session.Session) ([]Resource, error) {
 	resources := make([]Resource, 0)
 	for _, vpc := range resp.Vpcs {
 		resources = append(resources, &EC2VPC{
-			svc:       svc,
-			vpc:       vpc,
+			svc: svc,
+			vpc: vpc,
 		})
 	}
 

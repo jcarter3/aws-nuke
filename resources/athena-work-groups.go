@@ -3,11 +3,12 @@ package resources
 import (
 	"errors"
 	"fmt"
+
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/athena"
 	"github.com/aws/aws-sdk-go/service/sts"
-	"github.com/rebuy-de/aws-nuke/pkg/types"
+	"github.com/jcarter3/aws-nuke/pkg/types"
 	"github.com/sirupsen/logrus"
 )
 
@@ -81,7 +82,7 @@ func (a *AthenaWorkGroup) Remove() error {
 				PublishCloudWatchMetricsEnabled:  aws.Bool(false),
 				RemoveBytesScannedCutoffPerQuery: aws.Bool(true),
 				RequesterPaysEnabled:             aws.Bool(false),
-				ResultConfigurationUpdates:       &athena.ResultConfigurationUpdates{
+				ResultConfigurationUpdates: &athena.ResultConfigurationUpdates{
 					RemoveEncryptionConfiguration: aws.Bool(true),
 					RemoveOutputLocation:          aws.Bool(true),
 				},

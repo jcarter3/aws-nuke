@@ -1,4 +1,4 @@
-module github.com/rebuy-de/aws-nuke
+module github.com/jcarter3/aws-nuke
 
 go 1.13
 

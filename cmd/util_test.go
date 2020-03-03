@@ -5,7 +5,7 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/rebuy-de/aws-nuke/pkg/types"
+	"github.com/jcarter3/aws-nuke/pkg/types"
 )
 
 func TestResolveResourceTypes(t *testing.T) {
@@ -72,7 +72,7 @@ func TestIsTrue(t *testing.T) {
 
 	trueStrings := []string{"true", " true", "true ", " TrUe "}
 	for _, ts := range trueStrings {
-		if ! IsTrue(ts) {
+		if !IsTrue(ts) {
 			t.Fatalf("IsTrue falsely returned 'false' for: %s", ts)
 		}
 	}
